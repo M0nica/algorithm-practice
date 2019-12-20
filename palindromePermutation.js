@@ -4,6 +4,26 @@
 /// permutation is a rearrangement of letters.The palindrome does not
 /// need to be limited to just dictionary words.
 
+function checkPalindromPermutation2(word) {
+  const letterCount = new Map();
+  for (let letter of word) {
+    if (letterCount.has(letter)) {
+      letterCount.set(letter, letterCount.get(letter) + 1);
+    } else {
+      letterCount.set(letter, 1);
+    }
+  }
+
+  let oddCount = 0;
+  letterCount.forEach((value, key) => {
+    if (value % 2 != 0) {
+      oddCount++;
+    }
+  });
+
+  return oddCount <= 1;
+}
+
 function checkPalindromPermutation(word) {
   const letters = word.split("");
   const mappedLetters = new Map();
@@ -31,5 +51,5 @@ function checkPalindromPermutation(word) {
   return true;
 }
 
-checkPalindromPermutation("tot");
-checkPalindromPermutation("car");
+console.log(checkPalindromPermutation2("tot"));
+console.log(checkPalindromPermutation2("car"));

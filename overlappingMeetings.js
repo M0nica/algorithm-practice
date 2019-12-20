@@ -22,8 +22,8 @@ function mergeRanges(meetings) {
 
     if (thisEndTime >= nextStartTime) {
       const startTime =
-        thisStartTime < nextStartTime ? thisStartTime : nextStartTime;
-      const endTime = thisEndTime > nextEndTime ? thisEndTime : nextEndTime;
+        thisStartTime < nextStartTime ? thisStartTime : nextStartTime; // returns the earlier start time
+      const endTime = thisEndTime > nextEndTime ? thisEndTime : nextEndTime; // returns the later end time
       meetings.splice(i, 2, { startTime, endTime });
 
       i--;

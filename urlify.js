@@ -11,5 +11,5 @@ function urlify(input) {
   return formattedUrl;
 }
 
-// urlify("he llo ");
-// urlify("Mr John Smith    ");
+urlify("he llo ");
+urlify("Mr John Smith    ");
