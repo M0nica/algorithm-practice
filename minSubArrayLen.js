@@ -5,6 +5,7 @@ function minSubArrayLen(array, target) {
   let next = 1;
 
   while (min > next) {
+      if(target[])
     min++;
     next++;
   }

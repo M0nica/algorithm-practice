@@ -30,6 +30,7 @@ function maxSubarraySum(array, targetLength) {
   }
   sum = sum - array[firstPointer] + array[secondPointer];
   return max > sum ? max : sum;
+  u;
 }
 
 console.log(maxSubarraySum([100, 200, 300, 400], 2)); // 700
