@@ -190,31 +190,19 @@ class SinglyLinkedList {
       nextNode = currentNode.next;
 
       //set the next val to the previous value
+      // initially is null as tail points to null.
       currentNode.next = previousNode;
 
-      //then move the currentNode up
+      //then move the currentNode to previous
+      // set the node next to the currentNode as the currentNode
       previousNode = currentNode;
       currentNode = nextNode;
     }
 
     [this.head, this.tail] = [this.tail, this.head];
+
     return this;
   }
-
-  // reverse() {
-
-  //   // this.head = this.tail;
-  //   // this.tail = node;
-  //   // var next;
-  //   // var prev = null;
-  //   // for (var i = 0; i < this.length; i++) {
-  //   //   next = node.next;
-  //   //   node.next = prev;
-  //   //   prev = node;
-  //   //   node = next;
-  //   // }
-  //   // return this;
-  // }
 
   // traverse() {
   //   let current = this.head;
@@ -229,6 +217,7 @@ var list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
+
 // console.log(list);
 console.log(list.print());
 console.log(list.reverse());
