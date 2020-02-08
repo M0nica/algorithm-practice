@@ -38,10 +38,10 @@ function convertToQueryParameter(string) {
   let queryString = "";
 
   Object.keys(string).forEach(key => {
-    queryString =
-      queryString.length !== 0
-        ? `${queryString}&${key}=${string[key]}`
-        : `${queryString}${key}=${string[key]}`;
+    if (queryString.length !== 0) {
+      queryString = `${queryString}&`;
+    }
+    queryString = `${queryString}${key}=${string[key]}`;
   });
 
   return queryString;
