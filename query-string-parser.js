@@ -38,7 +38,7 @@ function convertToQueryParameter(string) {
   let queryString = "";
 
   Object.keys(string).forEach(key => {
-    if (queryString.length !== 0) {
+    if (queryString.length) {
       queryString = `${queryString}&`;
     }
     queryString = `${queryString}${key}=${string[key]}`;
