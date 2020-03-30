@@ -92,6 +92,13 @@ function voterResults(arr) {
     oldVotes: 0,
     olds: 0
   };
+
+  const peersToVotePeers = {
+    youth: "youngVotes",
+    mids: "midVotes",
+    olds: "oldVotes"
+  };
+
   return arr.reduce((acc, voter) => {
     let peers;
     if (voter.age < 26) {
@@ -105,15 +112,14 @@ function voterResults(arr) {
     if (!voter.voted) {
       return { ...acc, [peers]: acc[peers] + 1 };
     } else {
-      let votePeers;
-
-      if (peers === "youth") {
-        votePeers = "youngVotes";
-      } else if (peers === "mids") {
-        votePeers = "midVotes";
-      } else {
-        votePeers = "oldVotes";
-      }
+      const votePeers = peersToVotePeers[peers];
+      // if (peers === "youth") {
+      //   votePeers = "youngVotes";
+      // } else if (peers === "mids") {
+      //   votePeers = "midVotes";
+      // } else {
+      //   votePeers = "oldVotes";
+      // }
       return {
         ...acc,
         [peers]: acc[peers] + 1,
