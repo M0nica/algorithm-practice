@@ -6,27 +6,47 @@
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
+
+function isHappy(n) {
   return getSquares(n) == 1;
-};
+}
 
-var getSquares = function(number, seen = {}) {
-  if (number in seen) {
-    return false;
-  } else if (number == 1) {
-    return true;
+function getSquares(n, seen = {}) {
+  const nums = n.toString().split("");
+  const squaredSum = nums.reduce((acc, value) => {
+    return acc + Math.pow(value, 2);
+  }, 0);
+  if (seen[squaredSum] == "true") {
+    return 0;
+  } else if (squaredSum == 1) {
+    return squaredSum;
   } else {
-    let digits = number.toString().split("");
-    let sum = 0;
-
-    for (digit of digits) {
-      sum += Math.pow(digit, 2);
-    }
-
-    seen[number] = "true";
-
-    return getSquares(sum, seen);
+    seen[squaredSum] = "true";
+    return getSquares(squaredSum, seen);
   }
-};
+}
+
+// var isHappy = function(n) {
+//   return getSquares(n) == 1;
+// };
+
+// var getSquares = function(number, seen = {}) {
+//   if (number in seen) {
+//     return false;
+//   } else if (number == 1) {
+//     return true;
+//   } else {
+//     let digits = number.toString().split("");
+//     let sum = 0;
+
+//     for (digit of digits) {
+//       sum += Math.pow(digit, 2);
+//     }
+
+//     seen[number] = "true";
+
+//     return getSquares(sum, seen);
+//   }
+// };
 
 console.log(isHappy(19)); // true
