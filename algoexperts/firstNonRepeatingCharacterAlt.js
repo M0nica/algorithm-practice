@@ -10,8 +10,10 @@ function firstNonRepeatingCharacter(string) {
     letterCount[letter] = letterCount[letter] ? 2 : 1;
   }
 
-  for (let index in string) {
-    if (letterCount[string[index]] == 1) return parseInt(index);
+  // avoid for...in when the order matters
+  // in this instance order matters as we want the first occurence
+  for (let idx = 0; idx < string.length; idx++) {
+    if (letterCount[string[idx]] == 1) return idx;
   }
 
   return -1;
@@ -21,10 +23,10 @@ function firstNonRepeatingCharacter(string) {
 exports.firstNonRepeatingCharacter = firstNonRepeatingCharacter;
 
 // all should return true if the fn is working as expected
-console.log(firstNonRepeatingCharacter("abcdcaf") == 1);
-console.log(firstNonRepeatingCharacter("faadabcbbebdf") == 6);
-console.log(firstNonRepeatingCharacter("a") == 0);
-console.log(firstNonRepeatingCharacter("abc") == 0);
-console.log(firstNonRepeatingCharacter("ababac") == 5);
-console.log(firstNonRepeatingCharacter("ababacc") == -1);
-console.log(firstNonRepeatingCharacter("lmnopqldsafmnopqsa") == 7);
+console.log(firstNonRepeatingCharacter("abcdcaf") === 1);
+console.log(firstNonRepeatingCharacter("faadabcbbebdf") === 6);
+console.log(firstNonRepeatingCharacter("a") === 0);
+console.log(firstNonRepeatingCharacter("abc") === 0);
+console.log(firstNonRepeatingCharacter("ababac") === 5);
+console.log(firstNonRepeatingCharacter("ababacc") === -1);
+console.log(firstNonRepeatingCharacter("lmnopqldsafmnopqsa") === 7);
