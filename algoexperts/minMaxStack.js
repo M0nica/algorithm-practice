@@ -21,10 +21,8 @@ class MinMaxStack {
 
   // O(1) time | O(1) space
   pop() {
-    const removedItem = this.stack[this.stack.length - 1];
     this.minMaxStack.pop();
-    this.stack.pop();
-    return removedItem;
+    return this.stack.pop();
   }
 
   // O(1) time | O(1) space
